@@ -56,7 +56,7 @@ public final class JJsoup {
             //修改原execute方法，在执行前判断Content-Type是否为JSON
             CtMethod declaredMethod = ctxClass.getDeclaredMethod("execute");
             declaredMethod.insertBefore("{" +
-                    "   if (this.req.method().hasBody() && this.req.requestBody() != null){" +
+                    "   if (this.req.method().hasBody() && this.req.requestBody() != null && !this.req.hasHeader(CONTENT_TYPE)){" +
                     "       try{" +
                     "           com.alibaba.fastjson.JSON.parse(this.req.requestBody());" +
                     "           this.req.header(CONTENT_TYPE, \"application/json;charset=\" + this.req.postDataCharset());" +

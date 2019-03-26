@@ -147,6 +147,20 @@ public final class Session implements Serializable {
         return this;
     }
 
+    @Override
+    public String toString() {
+        return "Session{" +
+                "ext=" + ext +
+                ", key='" + key + '\'' +
+                ", timeoutMilliseconds=" + timeoutMilliseconds +
+                ", proxy=" + proxy +
+                ", cookies=" + cookies +
+                ", ignoreHttpErrors=" + ignoreHttpErrors +
+                ", sslSocketFactory=" + sslSocketFactory +
+                ", ignoreContentType=" + ignoreContentType +
+                '}';
+    }
+
 }
 
 class KProxy implements Serializable {
@@ -184,4 +198,14 @@ class KProxy implements Serializable {
     public void setPort(int port) {
         this.port = port;
     }
+
+    @Override
+    public String toString() {
+        return "KProxy{" +
+                "type=" + type +
+                ", host='" + host + '\'' +
+                ", port=" + port +
+                '}';
+    }
+
 }
