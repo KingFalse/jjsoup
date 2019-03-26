@@ -18,7 +18,7 @@ System.err.println(session.cookies());
 <dependency>
     <groupId>me.kagura</groupId>
     <artifactId>jjsoup</artifactId>
-    <version>0.1.9</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 ## What's New
