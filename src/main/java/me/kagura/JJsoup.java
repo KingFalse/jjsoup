@@ -1,6 +1,7 @@
 package me.kagura;
 
 import javassist.*;
+import org.jsoup.helper.HttpConnection;
 
 public final class JJsoup {
 
@@ -32,8 +33,9 @@ public final class JJsoup {
      */
     private static synchronized Class initClass() {
         try {
+            Class<HttpConnection> connectionClass = HttpConnection.class;
             ClassPool classPool = ClassPool.getDefault();
-            String canonicalName = org.jsoup.helper.HttpConnection.class.getCanonicalName();
+            String canonicalName = connectionClass.getCanonicalName();
             //将org.jsoup.helper.HttpConnection复制一份org.jsoup.helper.HttpConnectionX
             CtClass ctxClass = classPool.getAndRename(canonicalName, canonicalName + "X");
             CtClass ctClassSession = classPool.getCtClass("me.kagura.Session");
@@ -65,7 +67,7 @@ public final class JJsoup {
                     "}");
             //修改原execute方法，在返回前将cookies存入Session对象
             declaredMethod.insertAfter("{session.cookies($_.cookies());}");
-            return ctxClass.toClass();
+            return ctxClass.toClass(connectionClass.getClassLoader());
         } catch (Exception e) {
             e.printStackTrace();
         }
