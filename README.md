@@ -1,4 +1,4 @@
-# jjsoup
+# jjsoup [![Maven Central](https://maven-badges.herokuapp.com/maven-central/me.kagura/jjsoup/badge.svg)](https://maven-badges.herokuapp.com/maven-central/me.kagura/jjsoup) 
 **jjsoup** 是基于[jsoup](https://github.com/jhy/jsoup)使用[javassist](https://github.com/jboss-javassist/javassist)提供类似Python [requests.Session()](http://docs.python-requests.org/zh_CN/latest/user/advanced.html)的API从而简化cookie保持
 ```java
 //创建新的Session对象,等价于requests.Session()
@@ -18,7 +18,7 @@ System.err.println(session.cookies());
 <dependency>
     <groupId>me.kagura</groupId>
     <artifactId>jjsoup</artifactId>
-    <version>0.2.0</version>
+    <version>0.2.1</version>
 </dependency>
 ```
 ## What's New
